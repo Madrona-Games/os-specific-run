@@ -5,7 +5,7 @@ import { Inputs, FileExtensions, Shells } from './constants';
 import { v4 as uuidV4 } from 'uuid';
 import path from 'node:path';
 import fs from 'node:fs';
-import { formatShell } from './string-utils';
+import { formatString } from './string-utils';
 
 export async function Run() {
   try {
@@ -41,7 +41,7 @@ export async function Run() {
     file = file + fileExtension;
 
     const shell = Shells[unformattedShell] ?? unformattedShell;
-    const formattedShell = formatShell(shell, file);
+    const formattedShell = formatString(shell, file);
 
     fs.writeFileSync(file, command);
 

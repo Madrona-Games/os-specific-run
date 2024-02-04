@@ -26141,7 +26141,7 @@ async function Run() {
         const fileExtension = constants_1.FileExtensions[unformattedShell] ?? '';
         file = file + fileExtension;
         const shell = constants_1.Shells[unformattedShell] ?? unformattedShell;
-        const formattedShell = (0, string_utils_1.formatShell)(shell, file);
+        const formattedShell = (0, string_utils_1.formatString)(shell, file);
         node_fs_1.default.writeFileSync(file, command);
         core.info(`About to run command ${command}`);
         const errorCode = await exec.exec(formattedShell);
@@ -26164,15 +26164,16 @@ exports.Run = Run;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.formatShell = void 0;
-function formatShell(shell, ...arguments_) {
+exports.formatString = void 0;
+function formatString(shell, ...arguments_) {
     let a = shell;
-    for (const k of arguments_) {
-        a = a.replaceAll(new RegExp(`\\{'${k}'\\}`, 'g'), arguments_[k]);
+    let index = 0;
+    for (const value of arguments_) {
+        a = a.replaceAll(new RegExp(`\\{${index++}\\}`, 'g'), value);
     }
     return a;
 }
-exports.formatShell = formatShell;
+exports.formatString = formatString;
 
 
 /***/ }),

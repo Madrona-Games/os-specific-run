@@ -64,7 +64,7 @@ async function Run() {
         const fileExtension = constants_1.FileExtensions[unformattedShell] ?? '';
         file = file + fileExtension;
         const shell = constants_1.Shells[unformattedShell] ?? unformattedShell;
-        const formattedShell = (0, string_utils_1.formatShell)(shell, file);
+        const formattedShell = (0, string_utils_1.formatString)(shell, file);
         node_fs_1.default.writeFileSync(file, command);
         core.info(`About to run command ${command}`);
         const errorCode = await exec.exec(formattedShell);

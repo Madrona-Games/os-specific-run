@@ -1,12 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.formatShell = void 0;
-function formatShell(shell, ...arguments_) {
+exports.formatString = void 0;
+function formatString(shell, ...arguments_) {
     let a = shell;
-    for (const k of arguments_) {
-        a = a.replaceAll(new RegExp(`\\{'${k}'\\}`, 'g'), arguments_[k]);
+    let index = 0;
+    for (const value of arguments_) {
+        a = a.replaceAll(new RegExp(`\\{${index++}\\}`, 'g'), value);
     }
     return a;
 }
-exports.formatShell = formatShell;
+exports.formatString = formatString;
 //# sourceMappingURL=string-utils.js.map
