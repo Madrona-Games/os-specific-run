@@ -1,34 +1,34 @@
 name: 'OS specific run'
 description: 'Run a command based on the OS'
-author: Nick Maliwacki
+author: Madrona Games
 inputs:
-  linux:  # id of input
+  linux: # id of input
     description: 'linux commandline'
     required: false
     default: 'echo "No command specified for linux"'
-  macos:  # id of input
+  macos: # id of input
     description: 'macos commandline'
     required: false
     default: 'echo "No command specified for macos"'
-  windows:  # id of input
+  windows: # id of input
     description: 'windows commandline'
     required: false
     default: 'echo "No command specified for windows"'
-  linuxShell:  # id of input
+  linux-shell: # id of input
     description: 'linux commandline shell'
     required: false
     default: 'bash'
-  macosShell:  # id of input
+  macos-shell: # id of input
     description: 'macos commandline shell'
     required: false
     default: 'bash'
-  windowsShell:  # id of input
+  windows-shell: # id of input
     description: 'windows commandline shell'
     required: false
     default: 'pwsh'
 branding:
-  icon: list
-  color: purple
+  icon: terminal
+  color: grey
 runs:
-  using: 'node16'
+  using: 'node20'
   main: 'dist/index.js'
