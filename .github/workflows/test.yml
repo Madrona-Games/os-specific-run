@@ -19,14 +19,14 @@ jobs:
             echo "Hi from linux"
             echo "Hi from linux second line"
           windows: echo "Hi from windows"
-          windowsShell: cmd
+          windows-shell: cmd
 
       - uses: ./
         with:
           macos: echo "test2"
           linux: echo "test2"
           windows: echo "test2"
-          windowsShell: cmd
+          windows-shell: cmd
 
       - uses: Madrona-Games/os-specific-run@main
         with:
@@ -41,4 +41,4 @@ jobs:
           macos: echo "test2"
           linux: echo "test2"
           windows: echo "test2"
-          windowsShell: cmd
+          windows-shell: cmd
