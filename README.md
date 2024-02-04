@@ -28,7 +28,7 @@ A github action for running a separate command based on the os
 | ------------- | ------------- |
 | macos-shell   | bash          |
 | linux-shell   | bash          |
-| windows-shell | pwsh          |
+| windows-shell | powershell    |
 
 See https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell for more
 details

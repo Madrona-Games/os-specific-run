@@ -25,7 +25,7 @@ inputs:
   windows-shell: # id of input
     description: 'windows commandline shell'
     required: false
-    default: 'pwsh'
+    default: 'powershell'
 branding:
   icon: terminal
   color: grey
