@@ -4,14 +4,14 @@
   "description": "A github action for running a separate command based on the os",
   "scripts": {
     "prepare": "lefthook install",
-    "build": "tsc && ncc build --source-map --license licenses.txt -o dist src/run.ts",
+    "build": "npm install && tsc && ncc build --source-map --license licenses.txt --minify -o dist src/run.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint **/*.ts --cache",
     "format": "prettier --write **/*.ts"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Madrona-Games/os-specific-run.git"
+    "url": "https://github.com/Madrona-Games/os-specific-run.git"
   },
   "keywords": [],
   "author": "",
