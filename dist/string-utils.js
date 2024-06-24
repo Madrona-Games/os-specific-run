@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.formatString = void 0;
+exports.formatString = formatString;
 function formatString(shell, ...arguments_) {
     let a = shell;
     let index = 0;
@@ -9,5 +9,4 @@ function formatString(shell, ...arguments_) {
     }
     return a;
 }
-exports.formatString = formatString;
 //# sourceMappingURL=string-utils.js.map
