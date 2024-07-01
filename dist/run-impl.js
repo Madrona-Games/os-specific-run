@@ -26,7 +26,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Run = void 0;
+exports.Run = Run;
 const core = __importStar(require("@actions/core"));
 const exec = __importStar(require("@actions/exec"));
 const action_utils_1 = require("./action-utils");
@@ -76,5 +76,4 @@ async function Run() {
         core.setFailed(error.message);
     }
 }
-exports.Run = Run;
 //# sourceMappingURL=run-impl.js.map
