@@ -26,7 +26,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createTemporaryDirectory = exports.getInputAsString = exports.getInputAsBool = exports.getInputAsInt = exports.getInputAsArray = exports.logWarning = exports.isGhes = void 0;
+exports.isGhes = isGhes;
+exports.logWarning = logWarning;
+exports.getInputAsArray = getInputAsArray;
+exports.getInputAsInt = getInputAsInt;
+exports.getInputAsBool = getInputAsBool;
+exports.getInputAsString = getInputAsString;
+exports.createTemporaryDirectory = createTemporaryDirectory;
 const core = __importStar(require("@actions/core"));
 const node_path_1 = __importDefault(require("node:path"));
 const uuid_1 = require("uuid");
@@ -35,12 +41,10 @@ function isGhes() {
     const ghUrl = new URL(process.env['GITHUB_SERVER_URL'] ?? 'https://github.com');
     return ghUrl.hostname.toUpperCase() !== 'GITHUB.COM';
 }
-exports.isGhes = isGhes;
 function logWarning(message) {
     const warningPrefix = '[warning]';
     core.info(`${warningPrefix}${message}`);
 }
-exports.logWarning = logWarning;
 function getInputAsArray(name, options) {
     return core
         .getInput(name, options)
@@ -48,7 +52,6 @@ function getInputAsArray(name, options) {
         .map((s) => s.replace(/^!\s+/, '!').trim())
         .filter((x) => x !== '');
 }
-exports.getInputAsArray = getInputAsArray;
 function getInputAsInt(name, options) {
     const value = Number.parseInt(core.getInput(name, options));
     if (Number.isNaN(value) || value < 0) {
@@ -56,16 +59,13 @@ function getInputAsInt(name, options) {
     }
     return value;
 }
-exports.getInputAsInt = getInputAsInt;
 function getInputAsBool(name, options) {
     const result = core.getInput(name, options);
     return result.toLowerCase() === 'true';
 }
-exports.getInputAsBool = getInputAsBool;
 function getInputAsString(name, options) {
     return core.getInput(name, options) ?? '';
 }
-exports.getInputAsString = getInputAsString;
 // From https://github.com/actions/toolkit/blob/main/packages/tool-cache/src/tool-cache.ts#L23
 async function createTemporaryDirectory() {
     const IS_WINDOWS = process.platform === 'win32';
@@ -88,5 +88,4 @@ async function createTemporaryDirectory() {
     await io.mkdirP(destination);
     return destination;
 }
-exports.createTemporaryDirectory = createTemporaryDirectory;
 //# sourceMappingURL=action-utils.js.map
