@@ -1,6 +1,6 @@
 import * as core from '@actions/core';
 import path from 'node:path';
-import { v4 as uuidV4 } from 'uuid';
+import { randomUUID } from 'node:crypto';
 import * as io from '@actions/io';
 
 export function isGhes(): boolean {
@@ -60,7 +60,7 @@ export async function createTemporaryDirectory(): Promise<string> {
     temporaryDirectory = path.join(baseLocation, 'actions', 'temp');
   }
 
-  const destination = path.join(temporaryDirectory, uuidV4());
+  const destination = path.join(temporaryDirectory, randomUUID());
   await io.mkdirP(destination);
 
   return destination;

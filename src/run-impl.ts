@@ -2,7 +2,7 @@ import * as core from '@actions/core';
 import * as exec from '@actions/exec';
 import { createTemporaryDirectory, getInputAsString } from './action-utils';
 import { Inputs, FileExtensions, Shells } from './constants';
-import { v4 as uuidV4 } from 'uuid';
+import { randomUUID } from 'node:crypto';
 import path from 'node:path';
 import fs from 'node:fs';
 import { formatString } from './string-utils';
@@ -14,7 +14,7 @@ export async function Run() {
 
     const temporaryPath = await createTemporaryDirectory();
 
-    let file = path.join(temporaryPath, uuidV4());
+    let file = path.join(temporaryPath, randomUUID());
 
     switch (process.platform) {
       case 'linux': {
