@@ -3,7 +3,7 @@
 A github action for running a separate command based on the os
 
 ```yaml
-- uses: Madrona-Games/os-specific-run@v2
+- uses: Madrona-Games/os-specific-run@v3
   with:
     macos: echo "Hi from macos"
     linux: |
@@ -50,7 +50,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: Madrona-Games/os-specific-run@v2
+      - uses: Madrona-Games/os-specific-run@v3
         with:
           macos: echo "Hi from macos"
           linux: |
