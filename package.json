@@ -36,7 +36,7 @@
     "eslint-plugin-unicorn": "^64.0.0",
     "lefthook": "^2.1.6",
     "prettier": "^3.8.3",
-    "typescript": "^6.0.2"
+    "typescript": "^6.0.3"
   },
   "volta": {
     "node": "24.15.0"
